@@ -51,11 +51,16 @@ export default function Aim() {
         <h2>Solution</h2>
         <p className="mb-0">
           The tree data structure logic can be seen{" "}
-          <Link passHref href={"/"}>
+          <Link
+            passHref
+            href={
+              "https://github.com/DEEJ4Y/dsa-tree-search/blob/main/data_structures/tree.js"
+            }
+          >
             <a>here</a>
           </Link>
           . The source code for this project is on{" "}
-          <Link passHref href={"https://deej4y.github.io/deej4y"}>
+          <Link passHref href={"https://github.com/DEEJ4Y/dsa-tree-search"}>
             <a>Github</a>
           </Link>
           .

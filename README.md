@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tree search
 
-## Getting Started
+Quickly search for a word in a string. View the demo [here](https://deej4y.github.io/dsa-tree-search#working-example)
 
-First, run the development server:
+A project by David Joseph
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Aim
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To implement a word search for a given string of text.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Objective
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To implement a string searching algorithm using the Tree data structure. The user should be able to add a paragraph of text. This paragraph will be converted to a tree. The user should then be able to search for a word in the paragraph. The search must be done using the tree created from the paragraph.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Algorithm
 
-## Learn More
+### _Converting the text string to Tree_
 
-To learn more about Next.js, take a look at the following resources:
+Traverse the string character by character.
+If the character is the first character of the word, add it as a child of the root with value as the character. Add the index of the character to the locatedAt array of the child node. If a child node of root with the same character exists, just add the index to the locatedAt array.
+For each child of the root node, jump to the index of the first character of each word and recursively add the remaining characters as child nodes to the starting character parent node. If repeating, add the index to the locatedAt property.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### _Searching the tree_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Using depth-first traversal, find every node that matches the first character of the query.
+For next characters, recursively match the child nodes with the character to be found.
+Solution
+The tree data structure logic can be seen [here](https://github.com/DEEJ4Y/dsa-tree-search/blob/main/data_structures/tree.js). The source code for this project is on [Github](https://github.com/deej4y/dsa-tree-search).
